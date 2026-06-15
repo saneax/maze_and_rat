@@ -128,6 +128,16 @@ header h1 {
     background: #244a3e;
 }
 
+.btn.accent {
+    background: linear-gradient(135deg, #8b5cf6 0%, #a855f7 100%);
+    color: white;
+}
+
+.btn.accent:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+}
+
 .main-content {
     display: flex;
     flex-direction: column;
