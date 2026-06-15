@@ -1,0 +1,4 @@
+.env
+__pycache__/
+.kimchi
+maze_and_rat.egg-info/

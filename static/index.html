@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze & Rat Game</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Maze & Rat</h1>
+            <p class="subtitle">DFS Maze Generation • A* Pathfinding</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="mazeWidth">Width</label>
+                <input type="range" id="mazeWidth" min="15" max="101" step="2" value="21">
+                <span id="widthValue">21</span>
+            </div>
+            <div class="control-group">
+                <label for="mazeHeight">Height</label>
+                <input type="range" id="mazeHeight" min="15" max="101" step="2" value="21">
+                <span id="heightValue">21</span>
+            </div>
+            <div class="control-group">
+                <label for="speed">Speed</label>
+                <input type="range" id="speed" min="1" max="50" value="10">
+                <span id="speedValue">10x</span>
+            </div>
+            <div class="control-group">
+                <label for="seed">Seed (optional)</label>
+                <input type="number" id="seed" placeholder="Random">
+            </div>
+            <button id="newMazeBtn" class="btn primary">New Maze</button>
+            <button id="solveBtn" class="btn secondary">Solve (A*)</button>
+            <button id="compareBtn" class="btn tertiary">Compare Algorithms</button>
+            <button id="exportBtn" class="btn">Export PNG</button>
+        </div>
+
+        <div class="main-content">
+            <canvas id="mazeCanvas"></canvas>
+            <div id="comparisonContainer" class="comparison-container hidden">
+                <canvas id="compareCanvas1"></canvas>
+                <canvas id="compareCanvas2"></canvas>
+                <canvas id="compareCanvas3"></canvas>
+            </div>
+        </div>
+
+        <div id="statsPanel" class="stats-panel">
+            <div class="stat">
+                <span class="stat-label">Path Length</span>
+                <span class="stat-value" id="pathLength">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Cells Visited</span>
+                <span class="stat-value" id="cellsVisited">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Generation Time</span>
+                <span class="stat-value" id="genTime">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Solve Time</span>
+                <span class="stat-value" id="solveTime">-</span>
+            </div>
+            <div class="stat">
+                <span class="stat-label">Algorithm</span>
+                <span class="stat-value" id="algorithm">-</span>
+            </div>
+        </div>
+
+        <div id="compareStats" class="compare-stats hidden">
+            <div class="compare-stat" data-algo="astar">
+                <h4>A*</h4>
+                <div>Length: <span class="c-length">-</span></div>
+                <div>Visited: <span class="c-visited">-</span></div>
+                <div>Time: <span class="c-time">-</span>ms</div>
+            </div>
+            <div class="compare-stat" data-algo="dijkstra">
+                <h4>Dijkstra</h4>
+                <div>Length: <span class="c-length">-</span></div>
+                <div>Visited: <span class="c-visited">-</span></div>
+                <div>Time: <span class="c-time">-</span>ms</div>
+            </div>
+            <div class="compare-stat" data-algo="bfs">
+                <h4>BFS</h4>
+                <div>Length: <span class="c-length">-</span></div>
+                <div>Visited: <span class="c-visited">-</span></div>
+                <div>Time: <span class="c-time">-</span>ms</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
